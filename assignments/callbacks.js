@@ -66,4 +66,10 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let unique = []
+  array.forEach(x => { if (!unique.includes(x)) { unique.push(x) } })
+  cb(unique)
 }
+removeDuplicates([1,2,2,'a','b'], (arr) => {
+  console.log(arr) //=> [1,2,'a','b']
+})
